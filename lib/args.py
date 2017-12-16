@@ -36,4 +36,7 @@ def parse():
     parser.add_argument('-A', '--audio-connection', action='store', default='auto', dest='audioconnection',
                         help="Decklink Audio-Connection-Type, see `gst-inspect-1.0 decklinkvideosrc` for possible values")
 
+    parser.add_argument('-p', '--port', action='store', type=int, required=True,
+                        help="TCP-Port to serve the stream on")
+
     Args = parser.parse_args()

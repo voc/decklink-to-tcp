@@ -58,7 +58,7 @@ class DecklinkToTcp(object):
                 blocksize=1048576
                 buffers-max=10000
                 sync-method=next-keyframe
-                port=20000
+                port={port}
                 host=0.0.0.0
         """.format(
             device=Args.device,
@@ -66,7 +66,8 @@ class DecklinkToTcp(object):
             audioconnection=Args.audioconnection,
             mode=Args.mode,
             channels="channels={}".format(Args.channels)
-                if Args.channels > 2 else ""
+                if Args.channels > 2 else "",
+            port=Args.port,
         )
 
         self.log.debug('Creating Mixing-Pipeline:\n%s', pipeline)
